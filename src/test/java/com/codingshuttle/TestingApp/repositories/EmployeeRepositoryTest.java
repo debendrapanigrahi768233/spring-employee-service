@@ -28,7 +28,6 @@ class EmployeeRepositoryTest {
     @BeforeEach
     void setUp() {
         employee = Employee.builder()
-                .id(1L)
                 .name("Anuj")
                 .email("anuj@gmail.com")
                 .salary(100L)
@@ -46,9 +45,9 @@ class EmployeeRepositoryTest {
 //        Assert, Then
         assertThat(employeeList).isNotNull();
         assertThat(employeeList).isNotEmpty();
-        assertThat(employeeList.getFirst().getEmail()).isEqualTo(employee.getEmail());
+        assertThat(employeeList.get(0).getEmail()).isEqualTo(employee.getEmail());
     }
-
+    //
     @Test
     void testFindByEmail_whenEmailIsNotFound_thenReturnEmptyEmployeeList() {
 //        Given
